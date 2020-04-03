@@ -1,6 +1,6 @@
 So because I couldn't find a good tutorial online, yada yada yada yada, onto the code.
 
-Start by making a function, that can is like a class object. We'll call it Cookies because I can't think of anything else. We'll add a console so that we know we've called it. 
+Start by making a function, that is like a class object. We'll call it Cookies because I can't think of anything else. We'll add a console so that we know we've called it. 
 
 ```
 //index.ts
@@ -10,7 +10,8 @@ function Cookie() {
 }
 ```
 
-This is good enough to export the function to use outside of this file, lol! At the very bottom of the file add:
+This is good enough to export the function to use outside of this file, lol.
+At the very bottom of the file add:
 
 ```
 //index.ts
@@ -18,7 +19,12 @@ This is good enough to export the function to use outside of this file, lol! At 
 module.exports = Cookie;
 ```
 
-Now, we're going to make a `test.ts` to use our function in. We'll have to import it and then call the type function. There's two ways to go about this. If you wanted to do some setup first, this is the time to pass that to the library and handle it on your end within the `Cookie` function. We'll use `CookieLibrary` as in the import to know when we're using the library and when we're talking about the function itself. 
+Now, we're going to make a `test.ts` to use our function in.
+We'll have to import it and then call the type function.
+There's two ways to go about this. If you wanted to do some setup first,
+this is the time to pass that to the library and handle it on your end
+within the `Cookie` function. We'll use `CookieLibrary` as in the import
+to know when we're using the library and when we're talking about the function itself. 
 
 ```
 //test.ts
@@ -83,7 +89,7 @@ Alright, cool, but how to expand. Let bake some cookies. We're going to make a `
 
 Inside of `oven.ts`, we're going to make a function that bakes the cookies. This where you would call any sort of API's or do you logic behind the scenes so everything isn't so coupled and connected together.
 
-We're going to call our function `baker` and it's going to take in the time, wait that amount and then return true as the cookie did bake.
+We're going to call our function `bake` and it's going to take in the time, wait that amount and then return true as the cookie did bake.
 
 ```
 //overn.ts
@@ -102,8 +108,10 @@ Now we have to connect it to the `Cookie`. Back in `index.ts`, we'll import the 
 
 ```
 //index.ts
+import { bake } from './oven'
 
-...,
+...
+
     bakeCookies: async function (time: number) {
         return await bake(time)
     }
